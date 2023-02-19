@@ -41,6 +41,9 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
+# Extraction of the ActiveRecord::Base#import functionality from ar-extensions for Rails 3 and beyond
+gem 'activerecord-import'
+gem 'bootstrap', '~> 5.2.2'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -55,6 +58,7 @@ group :development, :test do
   gem 'bullet'
   gem 'byebug'
   gem 'letter_opener'
+  gem 'dotenv-rails'
 end
 
 group :development do

@@ -3,8 +3,7 @@ class CreateWorkshops < ActiveRecord::Migration[7.0]
     create_table :workshops do |t|
       t.string :name
       t.text :description
-      t.string :start_date
-      t.string :date
+      t.date :start_date
       t.date :end_date
       t.string :start_time
       t.string :end_time

@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: customers
+#
+#  id                 :integer          not null, primary key
+#  contact_number     :string
+#  email              :string
+#  full_name          :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  stripe_customer_id :string
+#
+
+one:
+  full_name: MyString
+  email: MyString
+  contact_number: MyString
+  stripe_customer_id: MyString
+
+two:
+  full_name: MyString
+  email: MyString
+  contact_number: MyString
+  stripe_customer_id: MyString

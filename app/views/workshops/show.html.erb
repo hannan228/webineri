@@ -1,0 +1,71 @@
+<h1>workshops#show</h1>
+<p>Find me in app/views/workshops/show.html.erb</p>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card shadow mb-3 mt-2">
+      <div class="card-body">
+        <h4 class="card-title"><%= @workshop.name %></h4>
+        <h4> <span class="badge bg-primary"><%= @workshop.total_duration %></span></h4>
+        <h4> <span class="badge bg-primary"><%= @workshop.daily_duration %></span></h4>
+        <h4> <span class="badge bg-primary">Total Seats: <%= @workshop.total_sits %></span></h4>
+        <h4> <span class="badge bg-primary">Remianing Seats <%= @workshop.remaining_sits %></span></h4>
+        <h4> <span class="badge bg-primary">Registration Fee <%= @workshop.registration_fee %></span></h4>
+        <h4> <span class="badge bg-primary">Registration Fee <%= @workshop.description %></span></h4>
+        <%= link_to 'All Worshops', workshops_path, class: "btn btn-primary btn-lg" %>       
+      </div>
+
+      <h4> <span class="badge bg-primary">Reserve your seat now</span></h4>
+      <%= form_with url: "#", data: {turbo: false} do |form| %>
+        <%= form.hidden_field :workshop_id, value:@workshop.id %>
+
+        <div class="form-group">
+          <%= form.label :full_name %>
+          <%= form.text_field :full_name, required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :email %>
+          <%= form.text_field :email, required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :contact_number %>
+          <%= form.text_field :contact_number, required: true %>
+        </div>
+        <div class="form-group">
+          <%= form.label :no_of_sits_you_wants_to_book %>
+          <%= form.text_field :no_of_tickets, required: true, min: 1, max: @workshop.remaining_sits %>
+        </div>
+
+        card details
+
+        <div class="form-group">
+          <%= form.label :card_number %>
+          <%= form.text_field :card_number, required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :cvv %>
+          <%= form.text_field :cvv, required: true, maxlength: 4 %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :exp_month %>
+          <%= form.text_field :exp_month, required: true, min: 1, max: 12 %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :exp_year %>
+          <%= form.text_field :exp_year, required: true,  min: 2022, max: 2026 %>
+        </div>
+
+
+        <div class="d-grid gap-2">
+          <%= form.submit "Book Your Ticket Now"%>
+        </div>
+
+      <%end%>
+
+    </div>
+  </div>
+</div>
